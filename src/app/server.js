@@ -1,6 +1,8 @@
 import express from 'express'
 import { engine } from 'express-handlebars'
 import { PORT } from '../config/server.config.js'
+import { routerApi } from '../routers/routerApi.js'
+import { routerVistas } from '../routers/routerVistas.js'
 
 const app = express()
 
@@ -12,18 +14,9 @@ app.set('view engine', 'handlebars')
 app.use(express.static("./public"))
 app.use(express.json())
 
-app.get('/',(req,res,next)=>{
-    res.redirect('/videojuegos')
-})
 
-app.get('/videojuegos', (req,res,next)=>{
-    res.render('cargaVideojuegos', {pageTitle: 'Videojuegos'})
-})
-
-app.post('/api/videojuegos', (req,res,next) => {
-    console.log(req.body)
-    res.send('post ok')
-})
+app.use('/api',routerApi)
+app.use('/',routerVistas)
 
 app.listen(PORT,() =>{
     console.log(`escuchando en puerto ${PORT}`)

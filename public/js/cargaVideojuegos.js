@@ -12,8 +12,8 @@ if(formCargarVideojuego instanceof HTMLFormElement){
         fetch('/api/videojuegos', {
             method: 'POST',
             body: JSON.stringify(data),
-            header: {
-                "Content-type": "application/json"
+            headers: {
+                'Content-type': 'application/json'
             }
         })
     })
