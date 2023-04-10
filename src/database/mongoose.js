@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { MONGODB_CNX_STR } from "../config/database.js";
 
 await mongoose.connect(MONGODB_CNX_STR)
+console.log(`Base de datos conectada a ${MONGODB_CNX_STR}` )
 
 const schemaVideojuegos = new  mongoose.Schema({
     nombre: { type: String , required: true},

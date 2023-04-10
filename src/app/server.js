@@ -19,5 +19,5 @@ app.use('/api',routerApi)
 app.use('/',routerVistas)
 
 app.listen(PORT,() =>{
-    console.log(`escuchando en puerto ${PORT}`)
+    console.log(`Servidor escuchando en puerto ${PORT}`)
 } )
