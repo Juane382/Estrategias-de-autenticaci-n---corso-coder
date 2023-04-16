@@ -15,15 +15,15 @@ class VideojuegosManager {
     }
 
     async guardar(datosVJ){
-        const vjGuardado = await  this.videojuegosBd.create(datosVJ)
+        const vjGuardado = await  this.#videojuegosBd.create(datosVJ)
         return vjGuardado
     }
     async obtenerTodos(){
-        const vjs = await  this.videojuegosBd.find().lean()
+        const vjs = await  this.#videojuegosBd.find().lean()
         return vjs
     }
     async obtenerSugunID(id){
-        const vj= await  this.videojuegosBd.findById(id).lean()
+        const vj= await  this.#videojuegosBd.findById(id).lean()
         return vj
     }
 }
