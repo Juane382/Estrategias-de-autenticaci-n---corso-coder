@@ -1,7 +1,31 @@
+<h1> carga Video juegos</h1>
+
 <form id="formCargarVideojuego" action="/api/videojuegos" method="post">
-    <label for="input_nombre"></label> <input id="input_nombre" name="nombre" type="text" placeholder="ingrese nombre"> <br>
-    <label for="input_genero"></label> <input id="input_genero" name="genero" type="text" placeholder="ingrese genero"> <br>
-    <label for="input_plataforma"></label> <input id="input_plataforma" name="plataforma" type="text" placeholder="ingrese plataforma"> <br>
+    <label for="input_nombre"></label> <input id="input_nombre" name="nombre" type="text" placeholder="ingrese nombre">
+    <br>
+    <label for="input_genero"></label> <input id="input_genero" name="genero" type="text" placeholder="ingrese genero">
+    <br>
+    <label for="input_plataforma"></label> <input id="input_plataforma" name="plataforma" type="text"
+        placeholder="ingrese plataforma"> <br>
     <button type="submit">GUARDAR</button>
 </form>
+
+
+
+
+<h1>Video juegos</h1>
+
+{{#if hayVideojuegos}}
+<ul>
+    {{#each videojuegos}}
+
+    <li>Nombre: {{this.nombre}} | genero : {{this.genero}} | Plataforma : {{this.plataforma}}</li>
+    {{/each}}
+</ul>
+{{else}}
+
+<p>no hay videos juegos para mostrar</p>
+{{/if}}
+
+
 <script src="js/cargaVideojuegos.js"></script>

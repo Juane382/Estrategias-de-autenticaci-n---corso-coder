@@ -1,8 +1,10 @@
 import express from 'express'
 import { engine } from 'express-handlebars'
 import { PORT } from '../config/server.config.js'
-import { routerApi } from '../routers/routerApi.js'
-import { routerVistas } from '../routers/routerVistas.js'
+import { routerApi } from '../routers/api.router.js'
+import { routerVistas } from '../routers/views.router.js'
+import mongoose from 'mongoose'
+import {conectar} from '../database/mongoose.js'
 
 const app = express()
 
@@ -17,6 +19,8 @@ app.use(express.json())
 
 app.use('/api',routerApi)
 app.use('/',routerVistas)
+
+await conectar()
 
 app.listen(PORT,() =>{
     console.log(`Servidor escuchando en puerto ${PORT}`)
