@@ -1,19 +1,19 @@
 import { Router } from 'express';
 
-import { videojuegosManager } from '../managers/manager.videojuegos.js';
+import { productosManager } from '../managers/manager.productos.js';
 
 export const routerVistas = Router();
 routerVistas.get('/', (req, res, next) => {
-    res.redirect('/videojuegos');
+    res.redirect('/productos');
 });
-routerVistas.get('/videojuegos',async  (req, res, next) => {
+routerVistas.get('/productos',async  (req, res, next) => {
 
-    const videojuegos = await  videojuegosManager.obtenerTodos()
+    const productos = await  productosManager.obtenerTodos()
 
 
-    res.render('cargaVideojuegos', {
-        pageTitle: 'Videojuegos',
-        hayVideojuegos : videojuegos.length > 0,
-        videojuegos
+    res.render('cargaproductos', {
+        pageTitle: 'productos',
+        hayProductos : productos.length > 0,
+        productos
     });
 });

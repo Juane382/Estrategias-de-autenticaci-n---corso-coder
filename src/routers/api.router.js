@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { postVideojuegosController } from '../controllers/videojuegos.post.controller.js';
+import { postProductosController } from '../controllers/productos.post.controller.js';
 
 export const routerApi = Router();
 
-routerApi.post('/videojuegos', postVideojuegosController);
+routerApi.post('/productos', postProductosController);
