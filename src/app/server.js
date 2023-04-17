@@ -5,6 +5,7 @@ import { routerApi } from '../routers/api.router.js'
 import { routerVistas } from '../routers/views.router.js'
 import mongoose from 'mongoose'
 import {conectar} from '../database/mongoose.js'
+import { cartsRouter } from '../routers/carts.routers.js'
 
 const app = express()
 
@@ -19,6 +20,7 @@ app.use(express.json())
 
 app.use('/api',routerApi)
 app.use('/',routerVistas)
+app.use('/api/carts', cartsRouter)
 
 await conectar()
 

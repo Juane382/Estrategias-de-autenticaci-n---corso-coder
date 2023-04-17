@@ -5,6 +5,6 @@ export async function postProductosController(req, res, next) {
 
     const datosP = req.body;
     const result = await productosManager.guardar(datosP)
-    console.log('result. '+result);
+    //console.log('result. '+result);
     res.json(result);
 }

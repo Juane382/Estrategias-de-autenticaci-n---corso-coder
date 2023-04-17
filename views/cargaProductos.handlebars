@@ -1,4 +1,4 @@
-<h1> carga Carga Productos</h1>
+<h1>  Carga Productos</h1>
 
 <form id="formCargarProductos">
     <label for="input_title"></label> <input id="input_title" name="title" type="text" placeholder="ingrese title">
@@ -23,20 +23,35 @@
 
 
 
-<h1>Carga Productos</h1>
+<h1>Muestra Productos</h1>
 
 {{#if hayProductos}}
 <ul>
     {{#each productos}}
 
-    <li>title: {{this.title}} | description : {{this.description}} | price : {{this.price}}| thumbnail :
+    <li>title: {{this.title}}  | description : {{this.description}} | price : {{this.price}}| thumbnail :
         {{this.thumbnail}}| code : {{this.code}}| status : {{this.status}}| stock : {{this.stock}}| categoria :
-        {{this.categoria}}</li>
+        {{this.categoria}} <br> <br></li>
     {{/each}}
 </ul>
 {{else}}
 
 <p>no hay productos juegos para mostrar</p>
+{{/if}}
+
+
+<h1>Muestra Carros</h1>
+
+{{#if hayCarros}}
+<ul>
+    {{#each carros}}
+
+    <li>Productos: {{this.products}}  | ID : {{this._id}}  <br> <br></li>
+    {{/each}}
+</ul>
+{{else}}
+
+<p>no hay carros juegos para mostrar</p>
 {{/if}}
 
 
