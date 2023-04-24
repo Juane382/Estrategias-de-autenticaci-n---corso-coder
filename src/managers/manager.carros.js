@@ -3,8 +3,19 @@ import mongoose from "mongoose"
 
 
 const schemaCarro = new  mongoose.Schema({
-    products: { type: Array , required: false}
-},{versionKey:false})
+    products: { 
+        type: [
+        {
+            product:{
+                type: mongoose.Schema.Types.ObjectId, 
+                ref: 'product'
+            },
+            quantity: {type: Number, ref:'product', default: 1}
+        }
+    ],
+    default:[],
+    } 
+})
 
 
 class CarrosManager {
@@ -22,8 +33,19 @@ class CarrosManager {
         return crrs
     }
     async obtenerSugunID(id){
-        const c = await  this.#carrosBd.findById(id).lean()
-        return c 
+            const c = await  this.#carrosBd.findById(id).lean()
+            return c        
+    }
+    async actualizarUno(id,c){
+        const crr = await this.#carrosBd.updateOne({_id:`${id}`},c)
+        
+        return crr
+    }
+
+    async borrarUno(id){
+        const crr = await this.#carrosBd.deleteOne({_id:`${id}`})
+        
+        return crr
     }
 }
 

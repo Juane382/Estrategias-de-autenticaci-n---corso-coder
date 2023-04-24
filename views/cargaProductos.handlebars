@@ -31,7 +31,7 @@
 
     <li>title: {{this.title}}  | description : {{this.description}} | price : {{this.price}}| thumbnail :
         {{this.thumbnail}}| code : {{this.code}}| status : {{this.status}}| stock : {{this.stock}}| categoria :
-        {{this.categoria}} <br> <br></li>
+        {{this.categoria}}| ID : {{this._id}} <br> <br></li>
     {{/each}}
 </ul>
 {{else}}
@@ -46,7 +46,7 @@
 <ul>
     {{#each carros}}
 
-    <li>Productos: {{this.products}}  | ID : {{this._id}}  <br> <br></li>
+    <li>ID Carro : {{this._id}} | Productos: {{this.products.product}}  |  <br> <br></li>
     {{/each}}
 </ul>
 {{else}}
