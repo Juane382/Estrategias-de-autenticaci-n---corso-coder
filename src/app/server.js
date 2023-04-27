@@ -6,6 +6,9 @@ import { routerVistas } from '../routers/views.router.js'
 import mongoose from 'mongoose'
 import {conectar} from '../database/mongoose.js'
 import { cartsRouter } from '../routers/carts.routers.js'
+import session from '../middlewares/session.js'
+
+
 
 const app = express()
 
@@ -13,6 +16,7 @@ app.engine('handlebars',engine())
 app.set('views', "./views")
 app.set('view engine', 'handlebars')
 
+app.use(session)
 
 app.use(express.static("./public"))
 app.use(express.json())

@@ -4,6 +4,7 @@ import { productosManager } from '../managers/manager.productos.js';
 import { carrosManager } from '../managers/manager.carros.js';
 import { postUsuarios } from '../controllers/api/usuarios.controller.js';
 import { registrosVista } from '../controllers/web/registro.controler.js';
+import { autenticacion } from '../middlewares/autenticacion.js';
 
 export const routerVistas = Router();
 routerVistas.get('/', (req, res, next) => {
@@ -26,5 +27,11 @@ routerVistas.get('/productos',async  (req, res, next) => {
 });
 
 routerVistas.get('/registro', registrosVista);
+routerVistas.get('/profile',autenticacion, (req,res)=>{
+    res.render('profile',
+    {pageTitle:'Perfil',
+    user : JSON.stringify (req.session['user'])
+})
+})
 
 routerVistas.post('/api/usuarios',postUsuarios)
