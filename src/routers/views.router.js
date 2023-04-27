@@ -2,6 +2,8 @@ import { Router } from 'express';
 
 import { productosManager } from '../managers/manager.productos.js';
 import { carrosManager } from '../managers/manager.carros.js';
+import { postUsuarios } from '../controllers/api/usuarios.controller.js';
+import { registrosVista } from '../controllers/web/registro.controler.js';
 
 export const routerVistas = Router();
 routerVistas.get('/', (req, res, next) => {
@@ -22,3 +24,7 @@ routerVistas.get('/productos',async  (req, res, next) => {
 
     
 });
+
+routerVistas.get('/registro', registrosVista);
+
+routerVistas.post('/api/usuarios',postUsuarios)
